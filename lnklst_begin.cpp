@@ -8,10 +8,27 @@ class Node
 };
 void push(Node **head,int data)
 {
-Node *abi=new Node();
-abi->data=data;
-abi->nxt=*head;
-*head =abi;
+Node *n=new Node();
+n->data=data;
+n->nxt=*head;
+*head =n;
+}
+void append(Node **head,int data)
+{
+	Node *n=new Node();
+	n->data=data;
+	n->nxt=NULL;
+	Node *last=*head;
+	if(*head==NULL)
+	{
+		*head=n;
+	}
+	while(last->nxt!=NULL)
+	{
+		last=last->nxt;
+		
+	}
+	last->nxt=n;
 }
 void print(Node *head)
 {
@@ -26,6 +43,8 @@ int main() {
 	 Node *head=NULL;
 	 push(&head,6);
 	 push(&head,7);
+	 append(&head,8);
+	 append(&head,9);
 	 print(head);
 	return 0;
 }
