@@ -30,6 +30,14 @@ void append(Node **head,int data)
 	}
 	last->nxt=n;
 }
+void ins_after(Node *prev,int data)
+{
+	Node *n=new Node();
+	n->data=data;
+
+	n->nxt=prev->nxt;
+		prev->nxt=n;
+}
 void print(Node *head)
 {
 	while(head!=NULL)
@@ -43,7 +51,7 @@ int main() {
 	 Node *head=NULL;
 	 push(&head,6);
 	 push(&head,7);
-	 append(&head,8);
+	 ins_after(head->nxt,8);
 	 append(&head,9);
 	 print(head);
 	return 0;
